@@ -31,6 +31,7 @@ public class Process {
                 for (int j = 0; j < length; j++) {
                     char original = sb.charAt(j);
                     for (char k = 'a'; k <= 'z'; k++) {
+                        if (k == original) continue;
                         sb.setCharAt(j, k);
                         String to = sb.toString();
                         if (treeSet.contains(to)) {

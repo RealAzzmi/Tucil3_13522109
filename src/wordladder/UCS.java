@@ -32,7 +32,7 @@ public class UCS {
 
                 if (neighbour.equals(destination)) {
                     List<String> path = new ArrayList<>();
-                    while (neighbour != source) {
+                    while (!neighbour.equals(source)) {
                         path.add(neighbour);
                         neighbour = cameFrom.get(neighbour);
                     }

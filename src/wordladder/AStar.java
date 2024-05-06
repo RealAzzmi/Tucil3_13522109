@@ -24,7 +24,7 @@ public class AStar {
 
             if (currentWord.equals(destination)) {
                 List<String> path = new ArrayList<>();
-                while (currentWord != source) {
+                while (!currentWord.equals(source)) {
                     path.add(currentWord);
                     currentWord = cameFrom.get(currentWord);
                 }

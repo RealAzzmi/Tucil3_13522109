@@ -31,7 +31,7 @@ public class GBFS {
                 if (neighbour.equals(destination)) {
                     cameFrom.put(neighbour, currentWord);
                     List<String> path = new ArrayList<>();
-                    while (neighbour != source) {
+                    while (!neighbour.equals(source)) {
                         path.add(neighbour);
                         neighbour = cameFrom.get(neighbour);
                     }
