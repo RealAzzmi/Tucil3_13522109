@@ -10,7 +10,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class UCS {
-    public static List<String> solve(String source, String destination) {
+    public static Result solve(String source, String destination) {
         Queue<String> queue = new ArrayDeque<String>();
         Set<String> visited = new TreeSet<>();
         Map<String, String> cameFrom = new HashMap<>();
@@ -38,10 +38,10 @@ public class UCS {
                     }
                     path.add(source);
                     path = path.reversed();
-                    return path;
+                    return new Result(path, visited.size());
                 }
             }
         }
-        return null;
+        return new Result(null, visited.size());
     }
 }

@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.PriorityQueue;
 
 public class GBFS {
-    public static List<String> solve(String source, String destination) {
+    public static Result solve(String source, String destination) {
         PriorityQueue<Node> priorityQueue = new PriorityQueue<>(Comparator.comparingInt(Node::getF)); // f(n) = h(n) di
                                                                                                       // greedy best
                                                                                                       // first search
@@ -37,7 +37,7 @@ public class GBFS {
                     }
                     path.add(source);
                     path = path.reversed();
-                    return path;
+                    return new Result(path, hScore.size());
                 }
 
                 if (!hScore.containsKey(neighbour)) {
@@ -47,7 +47,7 @@ public class GBFS {
                 }
             }
         }
-        return null;
+        return new Result(null, hScore.size());
     }
 
     private static int h(String current, String destination) {

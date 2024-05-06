@@ -31,7 +31,7 @@ public class GBFS2 {
         return dfs(smallestNeighbour, destination, visited, cameFrom);
     }
 
-    public static List<String> solve(String source, String destination) {
+    public static Result solve(String source, String destination) {
         Set<String> visited = new TreeSet<>();
         Map<String, String> cameFrom = new HashMap<>();
 
@@ -39,7 +39,7 @@ public class GBFS2 {
         boolean found = dfs(source, destination, visited, cameFrom);
         
         if (!found) {
-            return null;
+            return new Result(null, visited.size());
         }
 
         List<String> path = new ArrayList<>();
@@ -50,7 +50,7 @@ public class GBFS2 {
         }
         path.add(source);
         path = path.reversed();
-        return path;
+        return new Result(path, visited.size());
     }
 
     private static int h(String current, String destination) {

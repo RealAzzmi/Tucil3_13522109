@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.PriorityQueue;
 
 public class AStar {
-    public static List<String> solve(String source, String destination) {
+    public static Result solve(String source, String destination) {
         PriorityQueue<Node> priorityQueue = new PriorityQueue<>(Comparator.comparingInt(Node::getF));
         Map<String, String> cameFrom = new HashMap<>();
         Map<String, Integer> gScore = new HashMap<>();
@@ -30,7 +30,7 @@ public class AStar {
                 }
                 path.add(source);
                 path = path.reversed();
-                return path;
+                return new Result(path, fScore.size());
             }
 
             // Biar ga visit ulang sehingga dijamin tidak kuadratik.
@@ -50,7 +50,7 @@ public class AStar {
                 }
             }
         }
-        return null;
+        return new Result(null, fScore.size());
     }
     private static int h(String current, String destination) {
         int count = 0;
