@@ -9,6 +9,8 @@ import wordladder.Result;
 
 public class Main {
     public static void main(String[] args) {
+        long beforeUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+
         Scanner userChoice = new Scanner(System.in);
 
         System.out.println("Choose the algorithm:");
@@ -19,7 +21,6 @@ public class Main {
         System.out.println("Note:   ");
         System.out.println("Optimal: Always finds the best solution.");
         System.out.println("Complete: Always finds a solution if there are any.\n");
-
 
         System.out.print("Algorithm choice: ");
         int algorithmChoice = userChoice.nextInt();
@@ -81,5 +82,8 @@ public class Main {
         }
         System.out.println("Total nodes visited: " + result.getTotalNodesVisited());
         System.out.println("Time taken: " + duration + " ms");
+        long afterUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        long actualMemUsed = (afterUsedMem - beforeUsedMem) / 1000;
+        System.out.println("Memory used: " + actualMemUsed + " KB");
     }
 }
