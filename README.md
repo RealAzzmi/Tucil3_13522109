@@ -10,12 +10,37 @@ Word ladder (also known as Doublets, word-links, change-the-word puzzles, paragr
 - Java(TM) SE Runtime Environment (build 22.0.1+8-16)
 - Python 3.10.12
 
-## Compilation
 
-It's best to compile the program using any java supported IDE. Mainstream java IDE like IntelliJ IDEA, netbeans, or VS code with java extensions can auto compile the program.
+## Setup
 
-## Usage
-Choose the algorithm then input the source, then input the destination. 
+- To run using makefile, simply run
+
+```bash
+make all
+```
+
+The above command simply run `make clean`, `make build`, and finally `make run` sequentially.
+
+- To run manually, build the program by running
+
+```bash
+javac --source-path src -d bin src/Main.java
+```
+
+Run the program by running
+
+```bash
+java -cp bin Main
+```
+
+Clean the bin by running
+
+```bash
+rm -rf bin/*
+```
+
+## Demo
+Choose the algorithm. Then input the source. Then input the destination. 
 
 ```bash
 Choose the algorithm:
